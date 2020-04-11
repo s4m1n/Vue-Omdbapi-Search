@@ -8,6 +8,7 @@
         v-model="searchTerm"
         @keypress.enter="getMovieList"
       />
+      <input type="submit" placeholder="Submit" class="submit" @click="getMovieList" />
     </section>
     <div v-if="movieList == null" class="error">
       <p>Please enter a movie name</p>
