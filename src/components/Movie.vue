@@ -1,15 +1,24 @@
 <template>
   <div>
     <section class="searchbox-wrap">
-      <input 
-      type="text" 
-      placeholder="Search for a movie..." 
-      class="searchbox" 
-      v-model="searchTerm" 
-      @keypress.enter="getMovieList" />
+      <input
+        type="text"
+        placeholder="Search for a movie..."
+        class="searchbox"
+        v-model="searchTerm"
+        @keypress.enter="getMovieList"
+      />
     </section>
-    <section class="results" >
-      <div v-for="movie in movieList" :key="movie.imdbID" class="result" @click="getMovieDetails(movie.Title)">
+    <div v-if="error" class="error">
+      <p>{{error}}</p>
+    </div>
+    <section v-else class="results">
+      <div
+        v-for="movie in movieList"
+        :key="movie.imdbID"
+        class="result"
+        @click="getMovieDetails(movie.Title)"
+      >
         <div v-if="movie.Poster == 'N/A'">
           <img src="@/assets/images/no-image.jpg" />
           <h3>{{movie.Title}}</h3>
@@ -31,24 +40,25 @@ export default {
   }),
   methods: {
     getMovieList: function() {
-      this.$store.dispatch("fetchMovies", this.searchTerm)
+      this.$store.dispatch("fetchMovies", this.searchTerm);
     },
-    getMovieDetails: function(title){
-      this.$store.dispatch("fetchMovieDetails", title).then(
-        this.$router.push({path: "details"})
-        )
+    getMovieDetails: function(title) {
+      this.$store
+        .dispatch("fetchMovieDetails", title)
+        .then(this.$router.push({ path: "details" }));
     }
   },
   computed: {
     movieList: function() {
-      return this.$store.getters.movieList
+      return this.$store.getters.movieList;
+    },
+    error: function() {
+      return this.$store.getters.error;
     }
   }
-    
-  
 };
 </script>
 
 
-<style >
+<style>
 </style>
