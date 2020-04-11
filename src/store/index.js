@@ -36,14 +36,14 @@ export default new Vuex.Store({
   actions: {
     fetchMovies({ commit }, payload) {
       axios
-        .get(`http://www.omdbapi.com/?s=${payload}&apikey=thewdb`)
+        .get(`https://www.omdbapi.com/?s=${payload}&apikey=thewdb`)
         .then(res => {
           commit('fetchMovies', res.data);
         });
     },
     fetchMovieDetails({ commit }, payload) {
       axios
-        .get(`http://www.omdbapi.com/?t=${payload}&apikey=thewdb`)
+        .get(`https://www.omdbapi.com/?t=${payload}&apikey=thewdb`)
         .then(res => {
           commit('fetchMovieDetails', res.data);
         });
