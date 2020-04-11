@@ -9,8 +9,13 @@
         @keypress.enter="getMovieList"
       />
     </section>
-
-    <div v-if="movieList.length == 0" class="error">
+    <div v-if="movieList == null" class="error">
+      <p>Please enter a movie name</p>
+    </div>
+    <div v-else-if="error == 'Too many results.'" class="error">
+      <p>{{error}}</p>
+    </div>
+    <div v-else-if="error == 'Movie not found!'" class="error">
       <p>{{error}}</p>
     </div>
     <section v-else class="results">

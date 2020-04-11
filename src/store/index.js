@@ -21,10 +21,13 @@ export default new Vuex.Store({
         state.movieList = payload.Search;
       }
       if (payload.Response == 'False') {
-        state.movieList = [];
+        if (payload.Error == 'Something went wrong.') {
+          state.movieList = null;
+        }
         state.error = payload.Error;
         setTimeout(function() {
           state.error = '';
+          state.movieList = [];
         }, 2000);
       }
     },
