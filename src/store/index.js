@@ -19,11 +19,12 @@ export default new Vuex.Store({
     fetchMovies: (state, payload) => {
       if (payload.Response == 'True') {
         state.movieList = payload.Search;
-      } else {
+      }
+      if (payload.Response == 'False') {
+        state.movieList = [];
         state.error = payload.Error;
         setTimeout(function() {
           state.error = '';
-          state.movieList = [];
         }, 2000);
       }
     },
