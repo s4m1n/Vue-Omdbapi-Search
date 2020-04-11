@@ -5,8 +5,12 @@
         {{ movie.Title }}
         <span>({{ movie.Year }})</span>
       </h1>
-      <h3>Genre: {{movie.Genre}}</h3>
+      <h5>Genre: {{movie.Genre}}</h5>
+      <h5>Director: {{movie.Director}}</h5>
+      <h5>Actors: {{movie.Actors}}</h5>
+      <h5>Awards: {{movie.Awards}}</h5>
       <p class="rating">Imdb Rating: {{movie.imdbRating}}</p>
+
       <div class="plot" v-if="movie.Poster == 'N/A'">
         <img src="@/assets/images/no-image.jpg" />
         <p>Plot: {{movie.Plot}}</p>
@@ -15,7 +19,7 @@
         <img :src="movie.Poster" />
         <p>{{movie.Plot}}</p>
       </div>
-      <button class="close" @click="close">Close</button>
+      <button class="back" @click="close">Back</button>
     </div>
   </section>
 </template>

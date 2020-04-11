@@ -65,12 +65,13 @@ input:focus::-webkit-input-placeholder {
 .submit {
   display: block;
   width: 100%;
+  padding: 5px;
   margin: 15px auto;
   border: none;
   outline: none;
   background: none;
 
-  background-color: #1e5083;
+  background-color: #01386e;
   border-radius: 4px;
 
   color: #fff;
@@ -81,7 +82,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .submit:hover {
-  background: #223343;
+  background: black;
   box-shadow: 0px 0px 8px 3px #4484c4;
 }
 
@@ -178,13 +179,13 @@ input:focus::-webkit-input-placeholder {
   padding: 15px;
 }
 
-.movie .content .close {
+/* .movie .content .close {
   display: inline-block;
   padding: 15px 30px;
   font-size: 18px;
   font-weight: 700;
 
-  background: #4484c4;
+  background: black;
   color: #fff;
   border-radius: 8px;
   border: none;
@@ -196,7 +197,28 @@ input:focus::-webkit-input-placeholder {
 }
 
 .movie .content .close:hover {
-  background: #223343;
+  background: black;
+} */
+
+.back {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 700;
+
+  background: #01386e;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+
+  transition: 0.4s ease-out;
+}
+.back:hover {
+  background: black;
+  box-shadow: 0px 0px 8px 3px #4484c4;
 }
 
 @media only screen and (max-width: 500px) {
@@ -209,5 +231,34 @@ input:focus::-webkit-input-placeholder {
     cursor: pointer;
     text-align: center;
     margin: auto;
+  }
+  .movie {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #445565;
+    text-align: center;
+
+    overflow-y: scroll;
+  }
+  .movie .content .plot {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px -9px;
+  }
+  .movie .content .plot img {
+    flex: 1 1 50%;
+    padding: 0px 15px;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 341px) {
+  .movie .content .plot {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -30px -9px;
   }
 }
