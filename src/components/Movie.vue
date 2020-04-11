@@ -9,7 +9,8 @@
         @keypress.enter="getMovieList"
       />
     </section>
-    <div v-if="error" class="error">
+
+    <div v-if="movieList.length == 0" class="error">
       <p>{{error}}</p>
     </div>
     <section v-else class="results">
