@@ -23,6 +23,7 @@ export default new Vuex.Store({
         state.error = payload.Error;
         setTimeout(function() {
           state.error = '';
+          state.movieList = [];
         }, 2000);
       }
     },
