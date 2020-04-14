@@ -19,6 +19,7 @@ export default new Vuex.Store({
     fetchMovies: (state, payload) => {
       if (payload.Response == 'True') {
         state.movieList = payload.Search;
+        state.movieDetails = null;
       }
       if (payload.Response == 'False') {
         if (payload.Error == 'Something went wrong.') {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
           state.movieList = [];
         }, 2000);
       }
+    },
+    emptyList: state => {
+      state.movieList = [];
     },
     fetchMovieDetails: (state, payload) => {
       state.movieDetails = payload;
@@ -46,9 +50,12 @@ export default new Vuex.Store({
           commit('fetchMovies', res.data);
         });
     },
+    emptyList({ commit }) {
+      commit('emptyList');
+    },
     fetchMovieDetails({ commit }, payload) {
       axios
-        .get(`https://www.omdbapi.com/?t=${payload}&apikey=thewdb`)
+        .get(`https://www.omdbapi.com/?t=${payload}&plot=full&apikey=thewdb`)
         .then(res => {
           commit('fetchMovieDetails', res.data);
         });

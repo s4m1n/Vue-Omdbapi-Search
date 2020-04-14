@@ -5,19 +5,19 @@
         {{ movie.Title }}
         <span>({{ movie.Year }})</span>
       </h1>
-      <h5>Genre: {{movie.Genre}}</h5>
-      <h5>Director: {{movie.Director}}</h5>
-      <h5>Actors: {{movie.Actors}}</h5>
-      <h5>Awards: {{movie.Awards}}</h5>
-      <p class="rating">Imdb Rating: {{movie.imdbRating}}</p>
+      <h5>Genre: {{ movie.Genre }}</h5>
+      <h5>Director: {{ movie.Director }}</h5>
+      <h5>Actors: {{ movie.Actors }}</h5>
+      <h5>Awards: {{ movie.Awards }}</h5>
+      <p class="rating">Imdb Rating: {{ movie.imdbRating }}</p>
 
       <div class="plot" v-if="movie.Poster == 'N/A'">
         <img src="@/assets/images/no-image.jpg" />
-        <p>Plot: {{movie.Plot}}</p>
+        <p>Plot: {{ movie.Plot }}</p>
       </div>
       <div class="plot" v-else>
         <img :src="movie.Poster" />
-        <p>{{movie.Plot}}</p>
+        <p>{{ movie.Plot }}</p>
       </div>
       <button class="back" @click="close">Back</button>
     </div>
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     close: function() {
-      this.$store.dispatch("closeMovie").then(this.$router.push({ path: "/" }));
+      this.$store.dispatch('closeMovie').then(this.$router.push({ path: '/' }));
     }
   },
   computed: {
@@ -42,5 +42,4 @@ export default {
 };
 </script>
 
-<style >
-</style>
+<style></style>
