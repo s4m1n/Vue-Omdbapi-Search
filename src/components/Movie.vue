@@ -63,10 +63,7 @@ export default {
       this.$store.dispatch('fetchMovies', this.searchTerm);
     },
     getMovieDetails: function(title) {
-      this.$store.dispatch('fetchMovieDetails', title).then();
-      setTimeout(() => {
-        this.$router.push({ path: 'details' });
-      }, 900);
+      this.$store.dispatch('fetchMovieDetails', title);
     },
     clearMovieList: function() {
       this.searchTerm = '';

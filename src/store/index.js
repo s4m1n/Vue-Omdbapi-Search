@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import router from '../router';
 
 Vue.use(Vuex);
 
@@ -37,6 +38,7 @@ export default new Vuex.Store({
     },
     fetchMovieDetails: (state, payload) => {
       state.movieDetails = payload;
+      router.push({ path: 'details' });
     },
     closeMovie: state => {
       state.movieDetails = null;
