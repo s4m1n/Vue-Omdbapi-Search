@@ -8,19 +8,13 @@
         v-model="searchTerm"
         @keypress.enter="getMovieList"
       />
-      <input
-        type="submit"
-        placeholder="Submit"
-        class="submit"
-        @click="getMovieList"
-      />
+
+      <button class="submit" @click="getMovieList">Search</button>
       <button
         v-if="movieList !== null && movieList.length > 0"
         class="clear"
         @click="clearMovieList"
-      >
-        Clear
-      </button>
+      >Clear</button>
     </section>
     <div v-if="movieList == null" class="error">
       <p>Please enter a movie name</p>
@@ -53,21 +47,21 @@
 
 <script>
 export default {
-  name: 'app',
+  name: "app",
   data: () => ({
-    searchTerm: '',
+    searchTerm: "",
     loading: false
   }),
   methods: {
     getMovieList: function() {
-      this.$store.dispatch('fetchMovies', this.searchTerm);
+      this.$store.dispatch("fetchMovies", this.searchTerm);
     },
     getMovieDetails: function(title) {
-      this.$store.dispatch('fetchMovieDetails', title);
+      this.$store.dispatch("fetchMovieDetails", title);
     },
     clearMovieList: function() {
-      this.searchTerm = '';
-      this.$store.dispatch('emptyList');
+      this.searchTerm = "";
+      this.$store.dispatch("emptyList");
     }
   },
   computed: {

@@ -75,6 +75,14 @@ input:focus::-webkit-input-placeholder {
   color: black;
 }
 
+/* Firefox > 19 */
+input::-moz-placeholder {
+  text-align: center;
+}
+input:focus:-moz-placeholder {
+  color: black;
+}
+
 .submit {
   display: block;
   width: 100%;
@@ -269,7 +277,7 @@ input:focus::-webkit-input-placeholder {
   box-shadow: 0px 0px 8px 3px #fff;
 }
 
-@media only screen and (max-width: 500px) {
+@media all and (max-width: 500px) {
   .results .result {
     width: 33.333%;
     min-width: 250px;
@@ -297,13 +305,17 @@ input:focus::-webkit-input-placeholder {
     margin: 0px -15px -9px;
   }
   .movie .content .plot img {
-    flex: 1 1 50%;
+    flex: initial;
     padding: 0px 15px;
     margin: auto;
   }
+  .movie .content .plot p {
+    flex: initial;
+    padding: 15px;
+  }
 }
 
-@media only screen and (max-width: 341px) {
+@media all and (max-width: 341px) {
   .movie .content .plot {
     display: flex;
     flex-wrap: wrap;
